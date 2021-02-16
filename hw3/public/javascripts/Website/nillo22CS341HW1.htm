@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html>
+
+<!-- Reggie Jan Marc Nillo -->
+<!-- CS 341 Software Development -->
+<!-- HW1: HTML and CSS -->
+<!-- HW2: Update same site with JavaScript and JQuery -->
+
+<head>
+	<title>Cheesecake Order Form</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"/> </script>
+</head>
+
+<body>
+	<h1>Cheesecake Order Form</h1>
+
+	<img src= https://upload.wikimedia.org/wikipedia/commons/d/db/Raised_slice_of_cheesecake.jpg class="center"> 
+
+	<br> <hr /> <br>
+
+	<h3 id="Main"> Please make your order here. </h3> <br> <!-- Change: this header has been given a tag so it can be referenced -->
+
+	<form name="Cheesecake Order Form" id="CHOF"> 
+
+		<!-- Radio buttons: Topping --> 
+		Topping: <br>
+			<input type="radio" id="Plain" name="Topping" value="Plain" checked>
+			<label for="Plain">Plain</label> <br>
+			<input type="radio" id="Chocolate" name="Topping" value="Chocolate">
+			<label for="Chocolate">Chocolate</label><br>
+			<input type="radio" id="Strawberry" name="Topping" value="Strawberry">
+			<label for="Strawberry">Strawberry</label><br> <br>
+			<!-- After each input type, 2 brs will be used to break them apart so they are easier to read -->
+
+		<!-- Drop down menu: Quantity -->
+		<label for="Quantity">Quantity:</label>
+			<select name="Quantity" id="Quantity"> <!-- I believe that a sane person would take no more than 6 cheesecakes of the same toping -->
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+		</select> <br> <br>
+
+		<!-- Text Area: Additional Notes -->
+		Notes: <br>
+			<textarea name="Notes" id="Notes" rows="20 cols="100">
+			Add in additional notes for your order.
+			</textarea> <br> <br>
+
+
+		<!-- Lastly a submit button will be placed down here -->
+		<button type="submit" id="submit" onclick="CheckSubmission()">Place Order</button>
+
+	</form>
+
+	<script>
+	// Create a function that will check the keywords -->
+	function CheckSubmission()
+	{
+		var source = $("#Notes").val().toLowerCase();
+		var target = "vegan";
+
+		//Alert the submitter if they are vegan (or just saying that)
+		if (source.includes(target)) 
+		{
+			alert("Our cheesecakes contain dairy products.");
+		}
+		else 
+		{
+			//Get variables so that we can write them down as strings
+			//https://stackoverflow.com/questions/9618504/how-to-get-the-selected-radio-button-s-value
+			//I checked them by name
+			//Also this helped me go through a list of the radio buttons
+			var ToppingC = document.getElementsByName('Topping');
+			var Topping = "Default";
+			for(var e = 0; e < ToppingC.length;e++) 
+			{
+				if (ToppingC[e].checked) 
+				{
+					Topping = ToppingC[e].value;
+					break;
+				}
+			}
+			var QSelector = $("#Quantity").val();
+			var Notes = $("#Notes").val();
+			
+			//We can now safely empty the form, as we have everything we need.
+			$("#CHOF").empty();
+			//Replace our top h3 text with a thank you
+			$("#Main").text("Thank you for your order! \n")
+			//Then add in the results as <p>
+			var Results1 = $("<p></p>").text("You have ordered " + QSelector + " " + Topping + " cheese cake(s)");
+			var ResultsNotes = $("<p></p>").text("Notes: " + Notes);
+			$("#CHOF").append(Results1, ResultsNotes);
+			
+
+		}
+	}
+
+	</script>
+
+	<br> <hr /> <br>
+	<!-- Short statistics of cheesecakes currently bought -->
+	<!-- From here I have no idea how to convert the new results and add them onto the statistics -->
+	<h3> Statistics (Cake toppings ordered on month) </h3> <br>
+	<!-- Now add in the dropdown button -->
+	<!-- This, as well as the css code for this associated class is used with these two sources below: -->
+	<!-- https://www.w3schools.com/howto/howto_css_dropdown.asp -->
+	<!-- https://www.w3schools.com/cssref/pr_pos_overflow.asp -->
+	<!-- Both of these have their own try it yourself buttons -->
+	<div class="dropdown">
+		<button class="dropbtn" id="MonthMenu">Jan</button>
+		<div class="dropdown_content">
+			<a href="#" id="button" onclick="setMonth" val="Jan">Jan</a>
+			<a href="#" id="button" onclick="setMonth" val="Feb">Feb</a>
+			<a href="#" id="button" onclick="setMonth" val="Mar">Mar</a>
+			<a href="#" id="button" onclick="setMonth" val="Apr">Apr</a>
+			<a href="#" id="button" onclick="setMonth" val="May">May</a>
+			<a href="#" id="button" onclick="setMonth" val="Jun">Jun</a>
+			<a href="#" id="button" onclick="setMonth" val="Jul">Jul</a>
+			<a href="#" id="button" onclick="setMonth" val="Aug">Aug</a>
+			<a href="#" id="button" onclick="setMonth" val="Sept">Sept</a>
+			<a href="#" id="button" onclick="setMonth" val="Oct">Oct</a>
+			<a href="#" id="button" onclick="setMonth" val="Nov">Nov</a>
+			<a href="#" id="button" onclick="setMonth" val="Dec">Dec</a>
+	</div>
+	<p> Plain: 3 </p>
+	<p> Chocolate: 17 </p>
+	<p> Strawberry: 11 </p>
+	
+	<script>
+	function setMonth() 
+	{
+		//I was trying to get this script to work, but it seems to get
+		//The value out of a newly formed order form website...
+		//Get the month from the button that was clicked
+		var Month = $("#button").val();
+		//$("#MonthMenu").text(Month);
+	}
+	</script>
+
+
+</body>
+
+</html>
