@@ -5,4 +5,4 @@ CS 341 Software Engineering
 HW3: Website Tools
 15 Feb 2021
 
-This is a code that will help create a database.
+This portion of the code deals with version control and unit testing with our HTML.
