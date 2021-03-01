@@ -46,6 +46,7 @@ function setMonth()
     //I was trying to get this script to work, but it seems to get
     //The value out of a newly formed order form website...
     //Get the month from the button that was clicked
+    //HW4: I tried to get this to work again, no luck
     var Month = $("#button").val();
-    //$("#MonthMenu").text(Month);
+    $("#MonthMenu").innerHTML = Month;
 }
