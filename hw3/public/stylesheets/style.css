@@ -1,8 +1,88 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+/*Reggie Jan Marc Nillo*/
+/*CS 341 Software Engineering*/
+/*HW1: CSS and HTML*/
+/*LU: 1 Feb 2021*/
+
+/*Tutorial used to link Externally: https://www.youtube.com/watch?v=gr7kzZchs7k*/
+
+body
+{
+	text-align: center;
+	background: #555555;
 }
 
-a {
-  color: #00B7FF;
+/*The same Font family and colors will be common among all headers, but the size will differ.*/
+/*Color method: hex (#XXXXXX)*/
+
+h1
+{
+	font-family: Verdana, sans-serif;
+	font-size: 50px;
+	color: #f9f9c6;
 }
+
+h3 
+{
+	font-family: Verdana, sans-serif;
+	font-size: 35px;
+	color: #f9f9c6;
+}
+
+form, p
+{
+	font-family: Helvetica,sans-serif;
+	color: #a3a378;
+	font-size: 20px;
+}
+
+/*Used for centering image*/
+/*help: https://www.w3schools.com/howto/howto_css_image_center.asp*/
+img
+{
+	align: center;
+	max-width: 35%;
+	height: auto;
+}
+
+/*For the dropdown Button*/
+.dropbtn
+{
+	font-size: 25px;
+	height: 35px;
+	width: 70px;
+	background-color: #777777;
+	color: #b8b878;
+}
+
+.dropdown
+{
+	position: relative;
+	display: inline-block;
+}
+
+.dropdown_content 
+{
+	display: none;
+	align: center;
+	position: relative;
+	width: 210px;
+	height: 140px;
+	overflow: auto;
+	z-index: 1;
+}
+
+.dropdown_content a
+{
+	font-size: 25px;
+	height: 35px;
+	width: 70px;
+	display: block;
+	background-color: #777777;
+	color: #b8b878;
+}
+
+.dropdown_content a:hover {background-color: #888888;}
+
+.dropdown:hover .dropdown_content {display: block;}
+
+.dropdown:hover .dropbtn{}
