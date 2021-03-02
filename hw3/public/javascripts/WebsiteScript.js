@@ -1,4 +1,5 @@
 //Reggie Jan Marc Nillo
+//Client side Handling
 function CheckSubmission()
 {
     var source = $("#Notes").val().toLowerCase();
@@ -49,4 +50,10 @@ function setMonth()
     //HW4: I tried to get this to work again, no luck
     var Month = $("#button").val();
     $("#MonthMenu").innerHTML = Month;
+    //Handle the POST function, edited with orders.js
+    //https://www.tutorialspoint.com/jquery/ajax-jquery-post.htm
+    //https://codeforgeek.com/handle-get-post-request-express-4/
+    //https://api.jquery.com/jQuery.post/
+    //I tried linking to the html file, but that didn't work either
+    $.post('../index.html',Month);
 }
