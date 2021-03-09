@@ -16,7 +16,17 @@ router.get('/', function(req, res, next) {
 //https://www.codota.com/code/javascript/functions/express/Router/post
 //https://expressjs.com/en/4x/api.html#app.post.method
 
-router.post('/');
+
+//I was going to get something down for this function, but I am not
+//Able to get something meaningful, as I was trying to fix up
+//My code from the last few HWs so that it avoids the 404 not found.
+//Was not able to get any further than that unfortunately.
+router.post('/orders', function(req, res, next)
+{
+  exports.dbquery("SELECT QUANTITY, TOPPING FROM ORDERS;", function (error, results){});
+});
 
 module.exports = router;
+
+
 
