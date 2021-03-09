@@ -1,5 +1,7 @@
 //Reggie Jan Marc Nillo
 //Client side Handling
+
+
 function CheckSubmission()
 {
     var source = $("#Notes").val().toLowerCase();
@@ -55,5 +57,5 @@ function setMonth()
     //https://codeforgeek.com/handle-get-post-request-express-4/
     //https://api.jquery.com/jQuery.post/
     //I tried linking to the html file, but that didn't work either
-    $.post('../index.html',Month);
+    $.post('/orders',Month, function(){});
 }
