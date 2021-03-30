@@ -1,8 +1,26 @@
 //Reggie Jan Marc Nillo
 //Client side Handling
+$(document).ready(function() 
+{
+    console.log("Loaded.");
+    $("#submit").click(CheckSubmission);
 
+    //Create button listeners for month
+    $("#M1button").click(GetMonth);
+    $("#M2button").click(GetMonth);
+    $("#M3button").click(GetMonth);
+    $("#M4button").click(GetMonth);
+    $("#M5button").click(GetMonth);
+    $("#M6button").click(GetMonth);
+    $("#M7button").click(GetMonth);
+    $("#M8button").click(GetMonth);
+    $("#M9button").click(GetMonth);
+    $("#M10button").click(GetMonth);
+    $("#M11button").click(GetMonth);
+    $("#M12button").click(GetMonth);
+});
 
-function CheckSubmission()
+CheckSubmission = function()
 {
     var source = $("#Notes").val().toLowerCase();
     var target = "vegan";
@@ -44,18 +62,13 @@ function CheckSubmission()
     }
 }
 
-function setMonth() 
+GetMonth = function()
 {
-    //I was trying to get this script to work, but it seems to get
-    //The value out of a newly formed order form website...
-    //Get the month from the button that was clicked
-    //HW4: I tried to get this to work again, no luck
-    var Month = $("#button").val();
-    $("#MonthMenu").innerHTML = Month;
-    //Handle the POST function, edited with orders.js
-    //https://www.tutorialspoint.com/jquery/ajax-jquery-post.htm
-    //https://codeforgeek.com/handle-get-post-request-express-4/
-    //https://api.jquery.com/jQuery.post/
-    //I tried linking to the html file, but that didn't work either
-    $.post('/orders',Month, function(){});
+    var MonthName = $(this).html();
+    setMonth(MonthName);
+}
+
+setMonth = function(MonName)
+{
+    $("#MonthMenu").html(MonName);
 }
