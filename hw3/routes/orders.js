@@ -5,9 +5,11 @@ var ChocOrders = {Topping: 'Chocolate',Quantity: 6};
 var StrawOrders = {Topping: 'Strawberry',Quantity: 6};
 var JanOrders = [PlainOrders, ChocOrders, StrawOrders];
 
+var JSONOrder = JSON.stringify(JanOrders);
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.json(JSON.stringify(JanOrders));
+  res.json(JSONOrder);
 });
 
 //Make router prepared for Orders
